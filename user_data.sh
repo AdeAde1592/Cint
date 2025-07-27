@@ -7,7 +7,7 @@ systemctl start httpd
 systemctl enable httpd
 
 # Get database credentials from Secrets Manager
-DB_SECRET=$(aws secretsmanager get-secret-value --secret-id ${secret_arn} --region us-east-1 --query SecretString --output text)
+DB_SECRET=$(aws secretsmanager get-secret-value --secret-id ${secret_arn} --region eu-west-2 --query SecretString --output text)
 DB_ENDPOINT=$(echo $DB_SECRET | jq -r .endpoint)
 DB_NAME=$(echo $DB_SECRET | jq -r .dbname)
 DB_USERNAME=$(echo $DB_SECRET | jq -r .username)
